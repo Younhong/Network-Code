@@ -37,10 +37,9 @@ int main(int argc, char *argv[]) {
     }
 
     for (int i = 0; i < 3; i++) {
-        fgets(MSG[i], BUFSIZE, stdin);
-        recv(sock, MSG[i], strlen(MSG[i]), 0);
+        send(sock, MSG[i], strlen(MSG[i]), 0);
 
-        str_len = read(sock, message, BUFSIZE-1);
+        str_len = recv(sock, message, BUFSIZE-1, 0);
         message[str_len] = 0;
         printf("서버로부터 수신된 %d차 메시지: %s\n", i, message);
     }

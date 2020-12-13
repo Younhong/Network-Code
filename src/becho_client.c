@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    sock = socket(PF_INET, SOCK_DGRAM, 0);
+    sock = socket(PF_INET, SOCK_STREAM, 0);
     if (sock == -1){
         error_handling("UDP 소켓 생성 오류");
     }

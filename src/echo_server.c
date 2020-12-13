@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
     int client_sock;
     char message[BUFSIZE];
     int str_len;
+    int num = 0;
 
     struct sockaddr_in serv_addr;
     struct sockaddr_in client_addr;
@@ -51,8 +52,9 @@ int main(int argc, char *argv[]) {
     }
 
     sleep(5);
-    while((str_len = read(client_sock, message, BUFSIZE)) != 0) {
-        recv(client_sock, message, strlen(message), 0);
+    while((str_len = recv(client_sock, message, BUFSIZE, 0)) != 0) {
+        printf("수신 번호: %d\n", num++);
+        send(client_sock, message, strlen(message), 0);
         sleep(1);
     }
 
