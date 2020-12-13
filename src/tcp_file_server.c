@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
     send(client_sock, filename, strlen(filename) + 1, 0);
 
     str_len = recv(client_sock, AorB, BUFSIZE, 0);
-    
+
     if (strcmp(AorB, "ascii") == 0) {
         rf = fopen(filename, "w");
     } else if (strcmp(AorB, "binary") == 0) {
